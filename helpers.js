@@ -1,12 +1,12 @@
 const moves = [
-  [2, 1],
-  [-2, 1],
-  [2, -1],
-  [-2, -1],
-  [1, 2],
-  [-1, 2],
-  [1, -2],
-  [-1, -2],
+	[2, 1],
+	[-2, 1],
+	[2, -1],
+	[-2, -1],
+	[1, 2],
+	[-1, 2],
+	[1, -2],
+	[-1, -2],
 ];
 
 export const printPath = (path) => {
@@ -16,11 +16,7 @@ export const printPath = (path) => {
 	}
 };
 
-export const equalCoordinates = (posA, posB) => {
-	return posA.toString() === posB.toString();
-};
-
-export const possibleMoves = (pos) => {
+export const nextMoves = (pos) => {
 	return moves
 		.map((move) => [move[0] + pos[0], move[1] + pos[1]])
 		.filter(
