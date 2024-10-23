@@ -10,16 +10,19 @@ const knightMoves = (start, end) => {
 // A queue is initialized with just the starting position.
 	const paths = [[start]];
 
-// Since a Knight is able to visit every square given enough moves, a simple while (true) loop is used.
+// Since a Knight is able to visit every square given enough moves,
+// a simple while (true) loop is used.
 	while (true) {
 
-// The first path is dequeued and using the last position in that path, every possible following move is generated.
+// The first path is dequeued and using the last position in that path,
+// every possible following move is generated.
 		const currentPath = paths.shift();
 		const lastPosition = currentPath[currentPath.length - 1];
 		const nextPosition = possibleMoves(lastPosition);
 
 // For each new possible position, a new path is created.
-// Using a set, it's determined if that square has been visited, and if not it's added, and that path is then enqueued.
+// Using a set, it's determined if that square has been visited,
+// and if not it's added, and that path is then enqueued.
 		for (let pos of nextPosition) {
 			const newPath = currentPath.slice();
 			const newPathSet = new Set(...newPath);
@@ -29,7 +32,8 @@ const knightMoves = (start, end) => {
 				paths.push(newPath);
 			}
 
-// If the last coordinate is the given end square, function execution is immediately halted and the results printed.
+// If the last coordinate is the given end square,
+// function execution is immediately halted and the results printed.
 			if (equalCoordinates(newPath[newPath.length - 1], end)) {
 				return printPath(newPath);
 			}
