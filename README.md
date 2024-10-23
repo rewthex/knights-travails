@@ -30,7 +30,10 @@ const knightMoves = (start, end) => {
 
 // If the last coordinate is the given end square,
 // function execution is immediately halted and the results printed.
-			if (endX === nextX && endY === nextY) return printPath(newPath.concat([[nextX, nextY]]));
+			if (endX === nextX && endY === nextY) {
+				newPath.push(next);
+				return printPath(newPath);
+			}
 
 // For every other position, a new path is created.
 // Using a set, it's determined if that square has been visited,
